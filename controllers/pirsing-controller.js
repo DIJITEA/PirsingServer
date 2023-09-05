@@ -1,14 +1,22 @@
-const Movie = require("../models/pirsing");
+const Pirsing = require("../models/pirsing");
 
 const handleError = (res, error) => {
   res.status(500).json({ error });
 };
 
 const getPirsing = (req, res) => {
-  Movie.find()
+  Pirsing.find()
     .sort({ title: 1 })
     .then((pirsing) => {
       res.status(200).json(pirsing);
+    })
+    .catch((err) => handleError(res, err));
+};
+
+const updatePirsing = (req, res) => {
+  Pirsing.findByIdAndUpdate(req.params.id, req.body)
+    .then((result) => {
+      res.status(200).json(result);
     })
     .catch((err) => handleError(res, err));
 };
@@ -60,6 +68,7 @@ const getPirsing = (req, res) => {
 
 module.exports = {
   getPirsing,
+  updatePirsing,
   //   getMovie,
   //   deleteMovie,
   //   addMovie,

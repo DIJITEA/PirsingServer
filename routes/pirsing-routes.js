@@ -2,6 +2,7 @@ const express = require("express");
 
 const {
   getPirsing,
+  updatePirsing,
   //   getMovie,
   //   deleteMovie,
   //   addMovie,
@@ -14,6 +15,6 @@ router.get("/pirsing", getPirsing);
 // router.get('/movies/:id', getMovie);
 // router.delete('/movies/:id', deleteMovie);
 // router.post('/movies', addMovie);
-// router.patch('/movies/:id', updateMovie);
+router.patch("/pirsing/:id", updatePirsing);
 
 module.exports = router;
