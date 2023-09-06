@@ -1,4 +1,9 @@
 const express = require("express");
+var cors = require("cors");
+var corsOptions = {
+  origin: "http://localhost:3001",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
 const {
   getPirsing,
@@ -11,10 +16,10 @@ const {
 
 const router = express.Router();
 
-router.get("/pirsing", getPirsing);
+router.get("/pirsing", cors(corsOptions), getPirsing);
 // router.get('/movies/:id', getMovie);
 // router.delete('/movies/:id', deleteMovie);
 // router.post('/movies', addMovie);
-router.patch("/pirsing/:id", updatePirsing);
+router.patch("/pirsing/:id", cors(corsOptions), updatePirsing);
 
 module.exports = router;
