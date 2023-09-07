@@ -1,7 +1,9 @@
 const express = require("express");
 var cors = require("cors");
 var corsOptions = {
-  origin: "http://localhost:3001",
+  origin: "https://DIJITEA.github.io/PirsingLight",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
