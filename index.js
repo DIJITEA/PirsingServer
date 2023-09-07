@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const pirsingRoutes = require("./routes/pirsing-routes");
 
-const whitelist = ["https://DIJITEA.github.io/PirsingLight"];
+const whitelist = ["http://localhost:3001"];
 const corsOptions = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1) {
@@ -22,7 +22,7 @@ const app = express();
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'https://DIJITEA.github.io/PirsingLight');
+  res.setHeader('Access-Control-Allow-Origin', 'https://DIJITEA.github.io/PirsingLight/');
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
